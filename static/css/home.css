@@ -1,0 +1,68 @@
+.grid{
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    gap: 20px;
+}
+
+ header {
+    
+    text-align: center;
+    
+    align-items: center;
+    background-size: cover; /* or "contain" depending on your preference */
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  .slide {
+    
+	max-width: auto;
+    height: 500px;
+    overflow: hidden;
+}
+
+.carousel-caption p {
+    color: #ece9d2;
+    font-weight:bold;
+    font-family: sans-serif;
+}
+
+.carousel-caption h5{
+    color: #6F4E37;
+    font-weight:bold;
+    font-family: sans-serif;
+}
+
+ main{
+    position: relative;
+	margin-left: 15%;
+	margin-right: 15%;
+	z-index: 100;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 40px;
+ }
+
+ main img{
+    grid-column: span 6;
+    width: 100%;
+    border-radius: 6px;
+    margin-bottom: 20px;
+ }
+
+ main .welcome{
+    grid-column: 8 / span 6;
+ }
+
+ .welcome h2{
+    color: #6F4E37;
+    font-weight:bold;
+    font-family: sans-serif;
+ }
+
+ .welcome p{
+    color: #ece9d2;
+    font-weight:bold;
+    font-family: sans-serif;
+ }
+ 

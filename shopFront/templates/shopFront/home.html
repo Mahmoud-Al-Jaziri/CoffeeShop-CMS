@@ -1,0 +1,36 @@
+{% extends "shopFront/main.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{%static '/css/home.css'%}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomePage</title>
+    <div class="slide">{% include "shopFront/slide.html" %}</div>
+</head>
+<body>
+    
+    <header class="grid">
+        
+    </header>
+
+<main class="grid">
+    
+    <img src="{% static "/images/welcomeImage.jpg" %}" alt="coffe mug">
+    <dir class = "welcome">
+        <h2>welcome</h2>
+        <p>Step into the warm embrace of a coffee lover's haven, where each sip is a journey into a
+        realm of rich aromas and comforting flavors. Here, the familiar hum of brewing beans
+        intertwines with the promise of a new day. From the robust embrace of a dark roast to
+        the delicate notes of a velvety latte, every cup tells a tale of craftsmanship and passion.
+        In this sanctuary of indulgence, the invigorating scent of freshly ground coffee mingles
+        with the anticipation of a delightful pause.</p>
+    </dir>
+    
+</main>
+{% include "shopFront/homePageFooter.html" %}
+</body>
+</html>
+{% endblock %}
