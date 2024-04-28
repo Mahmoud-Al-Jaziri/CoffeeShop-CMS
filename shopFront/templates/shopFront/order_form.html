@@ -9,6 +9,12 @@
 
 			<form action="" method="POST">
 				{% csrf_token %}
+				{{ form.management_form }}
+				{% for field in form %}
+					{{field}}
+					
+				{% endfor %}
+				<hr>
 				{{ formset.management_form }}
 				{% for field in formset %}
 					{{field}}
