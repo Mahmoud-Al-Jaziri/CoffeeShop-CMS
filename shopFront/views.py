@@ -8,40 +8,53 @@ from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate , login , logout
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def registerPage(request):
-    form = CreateUserForm()
-    if request.method == 'POST':
-        form = CreateUserForm(request.POST)
-        if form.is_valid():
-            form.save()
-            user = form.cleaned_data.get('username')
-            messages.success(request,'Account was created for ' + user + ', please login')
-            return redirect('loginPage')
+    if request.user.is_authenticated:
+        return redirect('homePage')
+    else:
+        form = CreateUserForm()
+        if request.method == 'POST':
+            form = CreateUserForm(request.POST)
+            if form.is_valid():
+                form.save()
+                user = form.cleaned_data.get('username')
+                messages.success(request,'Account was created for ' + user + ', please login')
+                return redirect('loginPage')
 
-    context = {'form':form}
-    return render(request,'shopFront/register.html', context)
+        context = {'form':form}
+        return render(request,'shopFront/register.html', context)
 
 def loginPage(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(request,username=username,password=password)
+    if request.user.is_authenticated:
+        return redirect('homePage')
+    else:
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            user = authenticate(request,username=username,password=password)
 
-        if user is not None:
-            login(request,user)
-            return redirect('homePage')
-        else:
-            messages.info(request, 'Username OR password is incorrect')
-        
+            if user is not None:
+                login(request,user)
+                return redirect('homePage')
+            else:
+                messages.info(request, 'Username OR password is incorrect')
+            
 
-    context = {}
-    return render(request,'shopFront/login.html', context)
+        context = {}
+        return render(request,'shopFront/login.html', context)
 
+def logoutUser(request):
+    logout(request)
+    return redirect('loginPage')
+
+@login_required(login_url='loginPage')
 def homePage(request):
     return render(request,'shopFront/home.html')
 
+@login_required(login_url='loginPage')
 def dashboard(request):
     orders = Order.objects.all()
     customers = Customer.objects.all()
@@ -57,6 +70,7 @@ def dashboard(request):
     
     return render(request,'shopFront/dashboard.html',context)
 
+@login_required(login_url='loginPage')
 def customer(request,pk_test):
     customer = Customer.objects.get(id=pk_test)
     orders = customer.order_set.all()
@@ -68,10 +82,12 @@ def customer(request,pk_test):
     context = {'customer':customer,'orders':orders,'total_orders':total_orders,'myFilter':myFilter}
     return render(request,'shopFront/customer.html',context)
 
+@login_required(login_url='loginPage')
 def products(request):
     products = Product.objects.all()
     return render(request,'shopFront/products.html',{'products':products})
 
+@login_required(login_url='loginPage')
 def createOrder(request,pk):
     OrderFormSet = inlineformset_factory(Customer,Order,fields=('product','payment_status','note'))
     customer = Customer.objects.get(id=pk)
@@ -85,6 +101,7 @@ def createOrder(request,pk):
     context={'formset':formset}
     return render(request,'shopFront/order_form.html',context)
 
+@login_required(login_url='loginPage')
 def updateOrder(request,pk):
     order = Order.objects.get(id=pk)
     form = OrderForm(instance=order)
@@ -96,7 +113,8 @@ def updateOrder(request,pk):
             return redirect(reverse('dashboardPage'))
     context = {'form':form}
     return render(request,'shopFront/order_form.html',context)
-    
+
+@login_required(login_url='loginPage')
 def deleteOrder(request,pk):
     order = Order.objects.get(id=pk)
     if request.method == 'POST':

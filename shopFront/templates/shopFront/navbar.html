@@ -1,4 +1,24 @@
 {% load static %}
+
+<style>
+  .hello-msg{
+    font-size:18px;
+    color:#333;
+    margin-right:20px;
+  }
+
+  .logout-link {
+    margin:20;
+    font-size: 16px;
+    color: brown;
+    text-decoration: none;
+}
+
+.logout-link:hover {
+  color: #007bff;
+}
+</style>
+
 <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color:#ece9d2">
     <a class="navbar-brand" href="#"><img src="{% static "/images/logo.jpg" %}" alt="coffe mug"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,4 +40,6 @@
         </li>
       </ul>
     </div>
+    <span class="hello-msg">Hello, {{request.user}}</span>
+    <span><a class="logout-link" href="{% url 'logout' %}">Logout</a></span>
   </nav>

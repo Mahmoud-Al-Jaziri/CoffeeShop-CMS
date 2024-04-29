@@ -23,6 +23,7 @@ urlpatterns = [
     path('', views.homePage,name="homePage"),
     path('register/',views.registerPage,name="registerPage"),
     path('login/',views.loginPage,name="loginPage"),
+    path('logout/',views.logoutUser,name="logout"),
     path('dashboard/',views.dashboard,name="dashboardPage"),
     path('customer/<str:pk_test>',views.customer,name="customerPage"),
     path('products/',views.products,name="productsPage"),
