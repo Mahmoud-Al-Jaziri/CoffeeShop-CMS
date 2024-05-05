@@ -84,7 +84,8 @@ def customer(request,pk_test):
 @allowed_users(allowed_roles=['admin'])
 def products(request):
     products = Product.objects.all()
-    return render(request,'shopFront/products.html',{'products':products})
+    context = {'products':products}
+    return render(request,'shopFront/products.html',context)
 
 @login_required(login_url='loginPage')
 @allowed_users(allowed_roles=['admin'])

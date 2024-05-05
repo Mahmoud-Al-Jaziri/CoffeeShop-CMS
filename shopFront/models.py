@@ -27,14 +27,28 @@ PAYMENT_STATUS_CHOICES = [
 class Promotion(models.Model):
     description = models.CharField(max_length=255)
     discount = models.FloatField()
+    
+    def __str__(self):
+        return self.description
+
 
 class Product(models.Model):
+    CATEGORY = (
+			('Hot', 'Hot'),
+			('Cold', 'Cold'),
+			)
+    HOLIDAYS = (
+        ('Eid al-Fitr', 'Eid al-Fitr'),
+        ('Christmas', 'Christmas'),
+        ('Halloween', 'Halloween'),
+    ) 
     title = models.CharField(max_length=255)
     description = models.TextField()
     unit_price = models.DecimalField(max_digits=6,decimal_places=2)
     inventory = models.IntegerField()
     last_update = models.DateTimeField(auto_now=True)
-    promotions = models.ManyToManyField(Promotion)
+    promotions = models.CharField(max_length=200, null=True, choices=HOLIDAYS)
+    category = models.CharField(max_length=200, null=True, choices=CATEGORY)
 
     def __str__(self):
         return self.title
