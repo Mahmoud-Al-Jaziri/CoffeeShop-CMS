@@ -19,6 +19,7 @@ def registerPage(request):
         if form.is_valid():
             form.save()
             user = form.cleaned_data.get('username')
+            
             messages.success(request,'Account was created for ' + user + ', please login')
             return redirect('loginPage')
 
@@ -126,6 +127,16 @@ def deleteOrder(request,pk):
     context = {'item':order}
     return render(request,'shopFront/delete.html',context)
 
+@login_required(login_url='loginPage')
+@allowed_users(allowed_roles=['customer'])
 def userPage(request):
-    context = {}
+    orders = request.user.customer.order_set.all()
+
+    total_orders = orders.count()
+    delivered = orders.filter(payment_status='COMPLETE').count
+    pending = orders.filter(payment_status='PENDING').count
+    print('ORDERS:',orders)
+    context = {'orders':orders,
+               'total_orders':total_orders,'delivered':delivered,
+               'pending':pending}
     return render(request,'shopFront/user.html',context)

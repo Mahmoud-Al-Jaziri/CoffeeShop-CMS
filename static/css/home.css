@@ -16,7 +16,7 @@
 
   .slide {
     
-	max-width: auto;
+	 max-width: auto;
     height: 500px;
     overflow: hidden;
 }
@@ -35,9 +35,9 @@
 
  main{
     position: relative;
-	margin-left: 15%;
-	margin-right: 15%;
-	z-index: 100;
+	 margin-left: 15%;
+	 margin-right: 15%;
+	 z-index: 100;
     max-width: 1200px;
     margin: 60px auto;
     padding: 40px;
