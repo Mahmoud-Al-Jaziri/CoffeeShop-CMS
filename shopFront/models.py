@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from PIL import Image
+
 
 MEMBERSHIP_BRONZE = 'BRONZE'
 MEMBERSHIP_SILVER = 'SILVER'
