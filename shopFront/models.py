@@ -56,11 +56,11 @@ class Product(models.Model):
 
 
 class Customer(models.Model):
-    user = models.OneToOneField(User,null=True,on_delete=models.CASCADE)
+    user = models.OneToOneField(User,null=True,blank=True,on_delete=models.CASCADE)
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
-    profile_pic = models.ImageField(null=True,blank=True)
+    profile_pic = models.ImageField(default="profile1.png", null=True, blank=True)
     phone = models.CharField(max_length=255)
     birth_date = models.DateField(null=True)
     membership = models.CharField(max_length=6,choices=MEMPERSHIP_CHOICES,default=MEMBERSHIP_BRONZE)
