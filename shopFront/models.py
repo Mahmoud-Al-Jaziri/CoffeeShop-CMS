@@ -60,7 +60,7 @@ class Customer(models.Model):
     user = models.OneToOneField(User,null=True,blank=True,on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
-    email = models.EmailField(unique=True)
+    email = models.EmailField(max_length=200, null=True)
     profile_pic = models.FileField(default="profile1.png", null=True, blank=True)
     phone = models.CharField(max_length=255)
     birth_date = models.DateField(null=True)
