@@ -58,7 +58,7 @@ class Product(models.Model):
 
 class Customer(models.Model):
     user = models.OneToOneField(User,null=True,blank=True,on_delete=models.CASCADE)
-    first_name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
     profile_pic = models.FileField(default="profile1.png", null=True, blank=True)
@@ -67,7 +67,7 @@ class Customer(models.Model):
     membership = models.CharField(max_length=6,choices=MEMPERSHIP_CHOICES,default=MEMBERSHIP_BRONZE)
 
     def __str__(self):
-        return self.last_name
+        return self.name
     
 class Order(models.Model):
     placed_at = models.DateTimeField(auto_now_add=True)

@@ -67,18 +67,21 @@
         <li class="nav-item active">
           <a class="nav-link" href="{% url "homePage" %}">Home</a>
         </li>
+        {% if request.user.is_staff %}
         <li class="nav-item">
           <a class="nav-link" href="{% url "dashboardPage" %}">Dashboard</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url "productsPage" %}">Products</a>
         </li>
+        {% else %}
         <li class="nav-item">
           <a class="nav-link" href="{% url "user-Page" %}">Profile</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'account' %}">Settings</a>
         </li>
+        {% endif %}
       </ul>
     </div>
     <span class="hello-msg">Hello, {{request.user}}</span>

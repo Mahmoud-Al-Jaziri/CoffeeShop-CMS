@@ -9,7 +9,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate , login , logout
 from django.contrib.auth.decorators import login_required
-from .decorators import unauthenticated_user , allowed_users
+from .decorators import unauthenticated_user , allowed_users , admin_only
 
 @unauthenticated_user
 def registerPage(request):
@@ -17,10 +17,10 @@ def registerPage(request):
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
         if form.is_valid():
-            form.save()
-            user = form.cleaned_data.get('username')
+            user = form.save()
+            username = form.cleaned_data.get('username')
             
-            messages.success(request,'Account was created for ' + user + ', please login')
+            messages.success(request,'Account was created for ' + username + ', please login')
             return redirect('loginPage')
 
     context = {'form':form}
@@ -52,7 +52,7 @@ def homePage(request):
     return render(request,'shopFront/home.html')
 
 @login_required(login_url='loginPage')
-@allowed_users(allowed_roles=['admin'])
+@admin_only
 def dashboard(request):
     orders = Order.objects.all()
     customers = Customer.objects.all()
