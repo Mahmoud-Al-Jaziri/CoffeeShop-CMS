@@ -154,3 +154,7 @@ def accountSettings(request):
     
     context = {'form':form}
     return render(request,'shopFront/account_settings.html', context)
+
+def contactus(request):
+    context = {}
+    return render(request,'shopFront/contactus.html')
