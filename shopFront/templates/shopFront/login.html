@@ -40,7 +40,8 @@
           {% for message in messages %}
               <p id="messages" class="register_message">{{message}}</p>
           {% endfor %}
-          <div class="signup"><h5>Don't have an account? <a href="{% url "registerPage" %}">Signup</a></h5></div>
+          <div class="signup"><h5>Don't have an account ? <a href="{% url "registerPage" %}">Signup</a></h5></div>
+          <div class="signup"><h5>Forgot password ? <a href="{% url "reset_password" %}">Change password</a></h5></div>
         </form>
       </div>
 </body>
