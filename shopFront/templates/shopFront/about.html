@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Coffee Shop</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f3f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #6F4E37;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .main-content {
+            padding: 50px 15px;
+        }
+
+        .about-us {
+            text-align: center;
+        }
+
+        .about-us h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #6b4f4f;
+        }
+
+        .about-text {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .about-text p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            background-color: #6F4E37;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .footer .links {
+            margin-bottom: 10px;
+        }
+
+        .footer .links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .about-text {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Welcome to Our Coffee Shop</h1>
+    </header>
+
+    <main class="main-content">
+        <div class="about-us">
+            <h2>About Us</h2>
+            <div class="about-text">
+                <p>At our coffee shop, we believe in providing the best coffee experience to our customers. Established in 2010, our shop has been a hub for coffee enthusiasts and casual drinkers alike. We take pride in our carefully selected beans, brewed to perfection by our expert baristas.</p>
+                <p>Our mission is to create a welcoming environment where people can relax, work, and enjoy the finest coffee. We source our beans from sustainable farms and ensure that every cup of coffee we serve is of the highest quality.</p>
+                <p>Whether you're here for a quick espresso or a leisurely cappuccino, we promise to make your visit memorable. Thank you for choosing us, and we look forward to serving you!</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="links">
+            <a href="{% url 'homePage' %}">Home</a>
+            <a href="#">Menu</a>
+            <a href="{% url "about" %}">About Us</a>
+            <a href="#">Contact</a>
+        </div>
+        <p>&copy; 2024 ANMO. All rights reserved.</p>
+    </footer>
+</body>
+</html>

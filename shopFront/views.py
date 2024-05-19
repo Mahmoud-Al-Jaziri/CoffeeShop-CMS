@@ -11,6 +11,7 @@ from django.contrib.auth import authenticate , login , logout
 from django.contrib.auth.decorators import login_required
 from .decorators import unauthenticated_user , allowed_users , admin_only
 
+
 @unauthenticated_user
 def registerPage(request):
     form = CreateUserForm()
@@ -155,6 +156,6 @@ def accountSettings(request):
     context = {'form':form}
     return render(request,'shopFront/account_settings.html', context)
 
-def contactus(request):
-    context = {}
-    return render(request,'shopFront/contactus.html')
+@login_required(login_url='login')
+def aboutUs(request):
+    return render(request,'shopFront/about.html')

@@ -20,8 +20,8 @@ urlpatterns = [
     path('delete_order/<str:pk>',views.deleteOrder,name="delete_order"),
     path('user/',views.userPage,name="user-Page"),
     path('account/',views.accountSettings,name="account"),
-    path('contact/',views.contactus,name="contact"),
-
+    path('about/',views.aboutUs,name="about"),
+    
     path('reset_password/',
      auth_views.PasswordResetView.as_view(template_name="shopFront/password_reset.html"),
      name="reset_password"),

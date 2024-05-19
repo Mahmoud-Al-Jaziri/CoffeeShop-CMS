@@ -2,6 +2,7 @@ from django.forms import ModelForm ,TextInput,EmailInput,PasswordInput
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
+from django.core.validators import EmailValidator
 from .models import Order , Customer
 
 class CustomerForm(ModelForm):
@@ -48,3 +49,4 @@ class CreateUserForm(UserCreationForm):
                     'placeholder':"Email"
                 }),
         }
+
