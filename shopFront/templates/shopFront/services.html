@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Coffee Shop</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f3f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #6F4E37;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .main-content {
+            padding: 50px 15px;
+        }
+
+        .services {
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #6b4f4f;
+        }
+
+        .services-list {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .services-list p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            background-color: #6F4E37;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .footer nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .footer nav ul li {
+            margin: 0 15px;
+        }
+
+        .footer nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .footer nav ul {
+                flex-direction: column;
+            }
+
+            .footer nav ul li {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>Our Services</h1>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="services">
+                <h2>What We Offer</h2>
+                <div class="services-list">
+                    <p><strong>Espresso Bar:</strong> Enjoy our expertly crafted espresso drinks, made with freshly ground beans and brewed to perfection by our skilled baristas.</p>
+                    <p><strong>Artisan Pastries:</strong> Complement your coffee with our selection of freshly baked pastries, including croissants, muffins, and scones, made with high-quality ingredients.</p>
+                    <p><strong>Specialty Teas:</strong> For tea lovers, we offer a curated selection of specialty teas, ranging from classic black teas to exotic herbal blends.</p>
+                    <p><strong>Coffee Beans:</strong> Take a piece of our coffee shop home with you by purchasing our premium coffee beans, available in various roasts and flavors.</p>
+                    <p><strong>Free Wi-Fi:</strong> Our coffee shop is the perfect place to work or study, with free Wi-Fi and plenty of cozy seating options.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="{% url 'homePage' %}">Home</a></li>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="{% url "about" %}">About Us</a></li>
+                    <li><a href="{% url "services" %}">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <p>&copy; 2024 ANMO. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

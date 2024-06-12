@@ -159,3 +159,8 @@ def accountSettings(request):
 @login_required(login_url='login')
 def aboutUs(request):
     return render(request,'shopFront/about.html')
+
+
+@login_required(login_url='login')
+def services(request):
+    return render(request,'shopFront/services.html')
