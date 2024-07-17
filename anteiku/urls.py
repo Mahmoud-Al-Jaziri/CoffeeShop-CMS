@@ -22,6 +22,8 @@ urlpatterns = [
     path('account/',views.accountSettings,name="account"),
     path('about/',views.aboutUs,name="about"),
     path('services/',views.services,name="services"),
+    path('contact/',views.contactUs,name="contact"),
+    path('menu/',views.menu,name="menu"),
     
     path('reset_password/',
      auth_views.PasswordResetView.as_view(template_name="shopFront/password_reset.html"),

@@ -164,3 +164,11 @@ def aboutUs(request):
 @login_required(login_url='login')
 def services(request):
     return render(request,'shopFront/services.html')
+
+@login_required(login_url='login')
+def contactUs(request):
+    return render(request,'shopFront/contact.html')
+
+@login_required(login_url='login')
+def menu(request):
+    return render(request,'shopFront/menu.html')

@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Coffee Shop</title>
+    <title>Contact Us - Coffee Shop</title>
     <style>
         body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
             font-family: 'Arial', sans-serif;
             background-color: #f7f3f0;
             color: #333;
@@ -21,28 +24,37 @@
         }
 
         .main-content {
+            flex: 1;
             padding: 50px 15px;
         }
 
-        .about-us {
+        .contact-us {
             text-align: center;
         }
 
-        .about-us h2 {
+        .contact-us h2 {
             font-size: 2em;
             margin-bottom: 20px;
             color: #6b4f4f;
         }
 
-        .about-text {
+        .contact-text {
             max-width: 600px;
             margin: 0 auto;
             padding: 0 15px;
         }
 
-        .about-text p {
+        .contact-text p {
             line-height: 1.6;
             margin-bottom: 20px;
+        }
+
+        .contact-info {
+            margin: 20px 0;
+        }
+
+        .contact-info p {
+            margin: 10px 0;
         }
 
         .footer {
@@ -68,7 +80,7 @@
         }
 
         @media (max-width: 768px) {
-            .about-text {
+            .contact-text {
                 padding: 0;
             }
         }
@@ -76,16 +88,20 @@
 </head>
 <body>
     <header class="header">
-        <h1>Welcome to Our Coffee Shop</h1>
+        <h1>Get in Touch with Us</h1>
     </header>
 
     <main class="main-content">
-        <div class="about-us">
-            <h2>About Us</h2>
-            <div class="about-text">
-                <p>At our coffee shop, we believe in providing the best coffee experience to our customers. Established in 2010, our shop has been a hub for coffee enthusiasts and casual drinkers alike. We take pride in our carefully selected beans, brewed to perfection by our expert baristas.</p>
-                <p>Our mission is to create a welcoming environment where people can relax, work, and enjoy the finest coffee. We source our beans from sustainable farms and ensure that every cup of coffee we serve is of the highest quality.</p>
-                <p>Whether you're here for a quick espresso or a leisurely cappuccino, we promise to make your visit memorable. Thank you for choosing us, and we look forward to serving you!</p>
+        <div class="contact-us">
+            <h2>Contact Us</h2>
+            <div class="contact-text">
+                <p>We'd love to hear from you! Whether you have a question about our coffee, services, or anything else, our team is ready to answer all your questions.</p>
+                <div class="contact-info">
+                    <p><strong>Phone:</strong> (555) 123-4567</p>
+                    <p><strong>Email:</strong> info@coffeeshop.com</p>
+                    <p><strong>Address:</strong> 123 Coffee St, Mocha City, CA 98765</p>
+                </div>
+                <p>Our working hours are Monday to Friday, 8:00 AM - 6:00 PM. Feel free to drop by or give us a call during these hours. We look forward to connecting with you!</p>
             </div>
         </div>
     </main>
@@ -93,7 +109,7 @@
     <footer class="footer">
         <div class="links">
             <a href="{% url 'homePage' %}">Home</a>
-            <a href="{% url "menu" %}">Menu</a>
+            <a href="{% url 'menu' %}">Menu</a>
             <a href="{% url "about" %}">About Us</a>
             <a href="{% url "services" %}">Services</a>
             <a href="{% url "contact" %}">Contact</a>

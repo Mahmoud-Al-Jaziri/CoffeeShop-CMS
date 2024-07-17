@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Coffee Shop</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f3f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #6F4E37;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 50px 15px;
+        }
+
+        .menu {
+            text-align: center;
+        }
+
+        .menu h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #6b4f4f;
+        }
+
+        .menu-items {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .menu-item {
+            border-bottom: 1px solid #ccc;
+            padding: 15px 0;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .menu-item h3 {
+            font-size: 1.5em;
+            margin: 0 0 10px 0;
+        }
+
+        .menu-item p {
+            margin: 0;
+        }
+
+        .footer {
+            background-color: #6F4E37;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .footer .links {
+            margin-bottom: 10px;
+        }
+
+        .footer .links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .menu-items {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Our Coffee Menu</h1>
+    </header>
+
+    <main class="main-content">
+        <div class="menu">
+            <h2>Menu</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <h3>Espresso</h3>
+                    <p>A rich and intense shot of coffee made from finely ground coffee beans.</p>
+                </div>
+                <div class="menu-item">
+                    <h3>Americano</h3>
+                    <p>A smooth coffee made by diluting an espresso with hot water.</p>
+                </div>
+                <div class="menu-item">
+                    <h3>Cappuccino</h3>
+                    <p>A perfect balance of espresso, steamed milk, and frothy milk foam.</p>
+                </div>
+                <div class="menu-item">
+                    <h3>Latte</h3>
+                    <p>A creamy blend of espresso and steamed milk with a light layer of foam.</p>
+                </div>
+                <div class="menu-item">
+                    <h3>Mocha</h3>
+                    <p>A delightful mix of espresso, chocolate syrup, and steamed milk.</p>
+                </div>
+                <div class="menu-item">
+                    <h3>Macchiato</h3>
+                    <p>An espresso topped with a small amount of steamed milk and foam.</p>
+                </div>
+                <div class="menu-item">
+                    <h3>Flat White</h3>
+                    <p>A smooth coffee made with espresso and velvety steamed milk.</p>
+                </div>
+                <div class="menu-item">
+                    <h3>Affogato</h3>
+                    <p>A delicious dessert coffee with a shot of espresso poured over vanilla ice cream.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="links">
+            <a href="{% url 'homePage' %}">Home</a>
+            <a href="{% url "menu" %}">Menu</a>
+            <a href="{% url "about" %}">About Us</a>
+            <a href="{% url "services" %}">Services</a>
+            <a href="{% url "contact" %}">Contact</a>
+        </div>
+        <p>&copy; 2024 ANMO. All rights reserved.</p>
+    </footer>
+</body>
+</html>
