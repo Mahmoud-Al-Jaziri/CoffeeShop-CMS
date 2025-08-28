@@ -1,6 +1,6 @@
 # Coffee Shop CRM ☕
 
-[![Live Demo](https://img.shields.io/badge/Demo-Live%20Site-brightgreen)]([CustomerManagementPlatform.pythonanywhere.com](https://customermanagementplatform.pythonanywhere.com/login/?next=/))
+[![Live Demo](https://img.shields.io/badge/Demo-Live%20Site-brightgreen)](https://customermanagementplatform.pythonanywhere.com/)
 [![Django](https://img.shields.io/badge/Django-4.2+-092E20?logo=django&logoColor=white)](https://www.djangoproject.com/)
 [![Python](https://img.shields.io/badge/Python-3.8+-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
